@@ -1,4 +1,4 @@
-affinic.ircutils
+affinitic.ircutils
 ================
 
 send irc notification 
