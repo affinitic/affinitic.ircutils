@@ -27,11 +27,13 @@ setup(name='affinitic.ircutils',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+        "irc"
                 ],
       extras_require=dict(),
       entry_points="""
       [console_scripts]
       send_irc_message = affinitic.ircutils.send_irc_message:main
       """,
+
       )
 
