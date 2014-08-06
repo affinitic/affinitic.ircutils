@@ -2,6 +2,7 @@
 
 import irc.client
 import sys
+import argparse
 
 
 class IRCCat(irc.client.SimpleIRCClient):
@@ -21,29 +22,22 @@ class IRCCat(irc.client.SimpleIRCClient):
         sys.exit(0)
 
 
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-s', '--server', required=True)
+    parser.add_argument('-p', '--port', default=6667, type=int)
+    parser.add_argument('-n', '--nickname', required=True)
+    parser.add_argument('-c', '--channel', required=True)
+    parser.add_argument('-m', '--message', required=True)
+    return parser.parse_args()
+
+
 def main():
-    if len(sys.argv) != 5:
-        print("Usage: send_irc_message <server[:port]> <nickname> <target> <message>")
-        print("\ntarget is a nickname or a channel.")
-        sys.exit(1)
+    args = get_args()
 
-    s = sys.argv[1].split(":", 1)
-    server = s[0]
-    if len(s) == 2:
-        try:
-            port = int(s[1])
-        except ValueError:
-            print("Error: Erroneous port.")
-            sys.exit(1)
-    else:
-        port = 6667
-    nickname = sys.argv[2]
-    target = sys.argv[3]
-    message = sys.argv[4]
-
-    c = IRCCat(target, message)
+    c = IRCCat(args.channel, args.message)
     try:
-        c.connect(server, port, nickname)
+        c.connect(args.server, args.port, args.nickname)
     except irc.client.ServerConnectionError as x:
         print(x)
         sys.exit(1)
