@@ -3,16 +3,17 @@ affinitic.ircutils
 
 Allow to send irc notification
 
-Usage:
+Usage
 -----
 
-bin/send_irc_message [-h] -s SERVER [-p PORT] -n NICKNAME -c CHANNEL -m MESSAGE
+```bin/send_irc_message [-h] -s SERVER [-p PORT] -n NICKNAME -c CHANNEL -m MESSAGE```
 
-example:
+Example
+-------
 
-bin/send_irc_message -s irc.freenode.net -n alibaba -c #hellochannel -m bonjour -p 6667
+```bin/send_irc_message -s irc.freenode.net -n alibaba -c #hellochannel -m bonjour -p 6667```
 
-Warning:
+Warning
 -------
 
 The nickname has to be free (unused).
