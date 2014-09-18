@@ -11,7 +11,7 @@ Usage
 Example
 -------
 
-```bin/send_irc_message -s irc.freenode.net -n alibaba -c #hellochannel -m bonjour -p 6667```
+```bin/send_irc_message -s irc.freenode.net -n alibaba -c '#hellochannel' -m bonjour -p 6667```
 
 Warning
 -------
